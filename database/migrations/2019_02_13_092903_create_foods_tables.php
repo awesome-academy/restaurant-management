@@ -22,8 +22,6 @@ class CreateFoodsTables extends Migration
             $table->double('price');
             $table->boolean('hot');
             $table->boolean('new');
-            $table->unsignedInteger('food_image_id');
-            $table->foreign('food_image_id')->references('id')->on('food_image');
             $table->unsignedInteger('discounts_id');
             $table->foreign('discounts_id')->references('id')->on('discounts');
             $table->timestamps();
