@@ -15,7 +15,8 @@ class CreateFoodImageTables extends Migration
     {
         Schema::create('food_image', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->unsignedInteger('foods_id');
+            $table->foreign('foods_id')->references('id')->on('foods');
             $table->string('image');
             $table->timestamps();
         });
