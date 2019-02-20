@@ -16,7 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -25,6 +27,40 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 
+        'remember_token',
     ];
+
+    protected $guared = ['id'];
+
+    protected $date = [
+        'email_verified_at',
+        'create_at',
+        'update_at',
+    ];
+
+    public function order()
+    {
+        return $this->hasMany('App\Order', 'user_id');
+    }
+
+    public function comment()
+    {
+        return $this->hasMany('App\Comment', 'user_id');
+    }
+
+    public function user_role()
+    {
+        return $this->hasMany('App\User_Role', 'user_id');
+    }
+
+    public function role()
+    {
+        return $this->belongstoMany('App\Role', 'user_roles', 'user_id', 'role_id')->withPivot('id');
+    }
+
+    public function rate()
+    {
+        return $this->hasMany('App\Rate', 'user_id');
+    }
 }
