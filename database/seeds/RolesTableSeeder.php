@@ -12,5 +12,13 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('roles')->insert([
+        	['authorities'='admin'],
+        	['authorities'='read'],
+        	['authorities'='comment'],
+        	['authorities'='order'],
+        	['authorities'='rate'],
+        	['authorities'='revervation'],
+        ]);
     }
 }
