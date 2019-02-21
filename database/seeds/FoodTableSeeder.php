@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UserRoleTableSeeder extends Seeder
+class FoodTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,10 +11,6 @@ class UserRoleTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        DB::table('user_roles')->insert([
-        	['roles_id'=''
-        	]
-        ]);
+        factory(App\Food::class,20)->create();
     }
 }
